@@ -1,4 +1,4 @@
-export const hospitals = [
+const hospitals = [
   {
     isTakingAppointments: true,
     imageURL:
@@ -552,3 +552,68 @@ export const hospitals = [
     },
   },
 ];
+
+const appointmentDescriptions = [
+  {
+    type: "General Checkup",
+    description: "Annual physical examination to assess your overall health. No special preparation required.",
+  },
+  {
+    type: "Blood Test",
+    description: "Fasting for 8-12 hours may be required. Please confirm with your doctor.",
+  },
+  {
+    type: "X-Ray",
+    description: "Wear comfortable clothing without metal zippers or buttons. Jewelry should be removed.",
+  },
+  {
+    type: "MRI Scan",
+    description: "Inform staff of any metal implants or devices in your body. Claustrophobic patients should notify us in advance.",
+  },
+  {
+    type: "Dental Cleaning",
+    description: "Brush and floss before your appointment. Bring a list of current medications.",
+  },
+  {
+    type: "Pediatric Visit",
+    description: "Bring your child's immunization records and a favorite toy for comfort.",
+  },
+  {
+    type: "Cardiology Consultation",
+    description: "Wear comfortable clothing. Bring a list of current medications and any recent test results.",
+  },
+  {
+    type: "Prenatal Checkup",
+    description: "Bring any prenatal vitamins you're taking and a list of questions for your doctor.",
+  },
+  {
+    type: "Dermatology Appointment",
+    description: "Come with clean skin, free of makeup or lotions. Wear clothing that allows easy examination of concerning areas.",
+  },
+  {
+    type: "Physical Therapy Session",
+    description: "Wear loose, comfortable clothing and athletic shoes. Bring any assistive devices you normally use.",
+  },
+  {
+    type: "Allergy Testing",
+    description: "Avoid antihistamines for 5 days prior to the appointment. Wear short sleeves or easily rolled-up sleeves.",
+  },
+  {
+    type: "Eye Exam",
+    description: "Bring your current glasses or contact lenses. If driving, you may need someone to drive you home if your eyes are dilated.",
+  },
+  {
+    type: "Vaccination",
+    description: "Wear clothing that allows easy access to the upper arm. Bring your vaccination record if available.",
+  },
+  {
+    type: "Colonoscopy",
+    description: "Follow the specific preparation instructions provided by your doctor. Arrange for someone to drive you home after the procedure.",
+  },
+  {
+    type: "Mammogram",
+    description: "Do not use deodorant, powder, or lotion under your arms or on your breasts on the day of the exam. Wear a two-piece outfit for convenience.",
+  }
+];
+
+export {appointmentDescriptions, hospitals}

@@ -1,6 +1,10 @@
 import { CgPin } from "react-icons/cg";
 import { hospitals } from "../data/hospitals";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { getUserData } from "../services/apiUser";
+import { useQuery } from "react-query";
+import { useUser } from "@clerk/clerk-react";
 
 function HospitalCard() {
   return (
@@ -12,9 +16,16 @@ function HospitalCard() {
   );
 }
 
-
-
 function CardRenderer({ data }) {
+  const  navigate  = useNavigate();
+
+  function handleRedirection({ data }) {
+    const hospitalName = data.name.split(" ").join("");
+    //used for one space in a string
+    // const newName = hospitalName.replace(" ", "");
+    //used for more than one space in a string
+    navigate(`${hospitalName}`);
+  }
   return (
     <div className="flex flex-row border rounded-lg overflow-hidden p-2 hover:shadow shadow-slate-50/100 hover:ease-linear transition-all justify-between">
       <div className="flex flex-row justify-between">
@@ -32,14 +43,17 @@ function CardRenderer({ data }) {
           </p>
           <div className="mt-2">
             {data.treatedDiseases.map((el) => (
-              <span key={el} className="text-xs rounded text-gray-500 mr-2 border p-1">
+              <span
+                key={el}
+                className="text-xs rounded text-gray-500 mr-2 border p-1"
+              >
                 {el}
               </span>
             ))}
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 justify-between">
+      <div className="flex flex-col gap-4 justify-between items-end">
         <span className="inline-flex items-center text-xs gap-1 text-gray-500">
           <CgPin />
           <p>
@@ -49,7 +63,10 @@ function CardRenderer({ data }) {
         <span className="inline-flex items-center text-xs gap-1 text-gray-500">
           <FaStarHalfAlt /> <p>{data.rating} Ratings</p>
         </span>
-        <button className="bg-blue-950 hover:bg-slate-900 transition-all ease-linear rounded-md text-sm font-medium text-white py-1 px-2">
+        <button
+          className="bg-blue-950 hover:bg-slate-900 transition-all ease-linear rounded-md text-sm font-medium text-white py-1 px-2 max-w-28"
+          onClick={() => handleRedirection({ data })}
+        >
           Book now
         </button>
       </div>

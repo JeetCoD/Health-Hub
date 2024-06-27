@@ -6,10 +6,9 @@ import HospitalCard from "../ui/HospitalCard";
 import Loading from "../ui/Loading";
 
 function HomePage() {
-  useEffect(function () {
-    const users = getUserData().then((data) => console.log(data));
-  }, []);
+ 
   const { isLoaded, isSignedIn, user } = useUser();
+  console.log(user);
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
